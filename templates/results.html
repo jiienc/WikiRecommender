@@ -3,25 +3,56 @@
 <head>
     <title>Search Results</title>
     <style>
-        .result {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: #e6f0ff;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #3498db;
+            text-align: center;
+            margin-top: 0;
+        }
+        p {
+            color: #555555;
             margin-bottom: 10px;
+        }
+        .result {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
         .filename {
             font-weight: bold;
+            color: #333333;
         }
         .score {
-            color: #000000;
+            color: #777777;
         }
     </style>
 </head>
 <body>
-    <h1>Search Results</h1>
-    <p>Query: {{ query }}</p>
-    {% for result in results %}
-        <div class="result">
-            <p class="filename">{{ result.filename }}</p>
-            <p class="score">Similarity Score: {{ result.similarity_score }}</p>
-        </div>
-    {% endfor %}
+    <div class="container">
+        <h1>Search Results</h1>
+        <p>Query: {{ query }}</p>
+        {% for result in results %}
+            <div class="result">
+                <p class="filename">{{ result.filename }}</p>
+                <p class="score">Similarity Score: {{ result.similarity_score }}</p>
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
